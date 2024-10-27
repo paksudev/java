@@ -1,0 +1,66 @@
+// Write a program to using marker interface create a class Product (product_id, product_name,
+// product_cost, product_quantity) default and parameterized constructor. Create objectsof class
+// product and display the contents of each object and Also display the object count
+
+import java.util.*;
+interface Marker{
+    
+}
+class Products implements Marker{
+    int pid,pcost,pquantity;
+    String pname;
+    static int count = 0;
+    
+    Products(int pid,String pname,int pcost,int pquantity){
+        this.pid = pid;
+        this.pname = pname;
+        this.pcost = pcost;
+        this.pquantity =pquantity;
+        count();
+    }
+    
+    Products(){
+    
+    }
+    
+    public void count(){
+        count++;
+        System.out.println(count + "object created");
+    }
+    
+    public void diplay(){
+        System.out.println("Product id "+pid);
+        System.out.println("Product name "+pname);
+        System.out.println("Product cost "+pcost);
+        System.out.println("Prouduct quantity"+pquantity);
+    }
+}
+
+public class Slip_9 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int pid,pcost,pquantity;
+        String pname;
+    
+        System.out.println("Enter the object");
+        int n = sc.nextInt();
+        Products[] product = new Products[n];
+        
+        for(int i=0;i<n;i++){
+            System.out.println("Enter the product id");
+            pid = sc.nextInt();
+            System.out.println("Enter the Product name");
+            pname = sc.next();
+            System.out.println("Enter the Product cost");
+            pcost = sc.nextInt();
+            System.out.println("Enter the Product Quantity");
+            pquantity = sc.nextInt();
+            
+            product[i] = new Products(pid,pname,pcost,pquantity);
+        }
+        
+        for(Products p : product)
+            p.diplay();
+                    
+    }
+}

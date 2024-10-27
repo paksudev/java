@@ -1,0 +1,106 @@
+//Write a Java program to create a Package “SY” which has a class SYMarks (members –
+// ComputerTotal, MathsTotal, and ElectronicsTotal). Create another package TY which has a
+// class TYMarks (members – Theory, Practicals). Create ‘n’ objects of Student class (having
+// rollNumber, name, SYMarks and TYMarks). Add the marks of SY and TY computer subjects
+// and calculate the Grade (‘A’ for >= 70, ‘B’ for >= 60 ‘C’ for >= 50, Pass Class for > =40
+// else‘FAIL’) and display the result of the student in proper format.
+
+import java.util.Scanner;
+import SY.Symarks;
+import TY.Tymarks;
+
+class Students{
+    int rollnumber;
+    String name;
+    Symarks symarks;
+    Tymarks tymarks;
+    
+    Students(int rollnumber,String name,Symarks symarks,Tymarks tymarks){
+        this.rollnumber = rollnumber;
+        this.name = name;
+        this.symarks = symarks;
+        this.tymarks = tymarks;
+    }
+    
+    public void Calulategrade(){
+        int totalcomputermarks = Symarks.ctotal + Tymarks.theory + Tymarks.praticle;
+        
+        if(totalcomputermarks >= 70)
+            System.out.println("Got a grade A");
+            else if(totalcomputermarks >= 60){
+                System.out.println("Got a grade B");
+           }else if(totalcomputermarks >= 50){
+                System.out.println("Got a grade C");
+           }else if(totalcomputermarks >= 40){
+                System.out.println("Pass");
+           }else{
+                System.out.println("Fail");
+                }
+        
+    }
+    
+    public void display(){
+        System.out.println("Roll number is "+rollnumber);
+        System.out.println("Name is "+name);
+        Calulategrade();
+    }
+}
+
+public class Slip_14 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int rollnumber;
+        String name;
+        System.out.println("Enter the object you want to create");
+        int n = sc.nextInt();
+        Students[] student = new Students[n];
+        
+        for(int i=0;i<n;i++){
+            
+            System.out.println("Enter the roll number");
+            rollnumber = sc.nextInt();
+            System.out.println("Enter the name");
+            name = sc.next();
+            
+            
+            System.out.println("Enter the Sy computer marks");
+            int ctotal = sc.nextInt();
+            System.out.println("Enter the Sy math marks");
+            int mtotal = sc.nextInt();
+            System.out.println("Enter the Sy elec marks");
+            int etotal = sc.nextInt();
+            
+            Symarks symark = new Symarks(ctotal,mtotal,etotal);
+            
+            System.out.println("Enter the Ty therorymarks");
+            int theory = sc.nextInt();
+            System.out.println("Enter the TY practicle marks");
+            int praticle = sc.nextInt();
+            
+            Tymarks tymark = new Tymarks(theory,praticle);
+            
+            student[i] = new Students(rollnumber,name,symark,tymark);
+            
+        }
+        System.out.println("Student result");
+        
+        for(Students std : student)
+            std.display();
+    }
+}
+
+
+
+
+package SY;
+
+
+public class Symarks {
+    public static int ctotal,mtotal,etotal;
+    
+    public Symarks(int ctotal,int mtotal,int etotal){
+        this.ctotal = ctotal;
+        this.mtotal = mtotal;
+        this.etotal = etotal;
+    }
+}

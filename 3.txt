@@ -1,0 +1,46 @@
+//) Define a class patient (patient_name, patient_age, patient_oxy_level,patient_HRCT_report).
+//Create an object of patient. Handle appropriate exception while patient oxygen level less than
+//95% and HRCT scan report greater than 10, then throw user defined Exception “Patient is Covid
+//Positive(+) and Need to Hospitalized” otherwise display its information.
+import java.util.*;
+
+class CovidPositiveException extends Exception {
+     CovidPositiveException(String message) {
+        super(message);
+    }
+}
+
+class Patient {
+    String name;
+    int age, oxyLevel, hrctReport;
+
+     Patient(String name, int age, int oxyLevel, int hrctReport) {
+        this.name = name;
+        this.age = age;
+        this.oxyLevel = oxyLevel;
+        this.hrctReport = hrctReport;
+    }
+
+    public void checkHealth() throws CovidPositiveException {
+        if (oxyLevel < 95 && hrctReport > 10) 
+            throw new CovidPositiveException("Patient is Covid Positive(+) and Needs to be Hospitalized");
+        else 
+            displayInfo();
+    }
+
+    public void displayInfo() {
+        System.out.println("Name"+ name + " | Age: " + age + " | Oxy Level: " + oxyLevel + "% | HRCT: " + hrctReport);
+    }
+}
+
+public class Slip_3{
+    public static void main(String[] args) {
+        try {
+            Patient p = new Patient("John", 45, 90, 18);
+            p.checkHealth();
+        } catch (CovidPositiveException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+}

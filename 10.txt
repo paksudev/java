@@ -1,0 +1,64 @@
+//Write a program to create a package name student. Define class StudentInfo with method to
+//display information about student such as rollno, class, and percentage. Create another class
+//StudentPer with method to find percentage of the student. Accept student details like
+// rollno, name, class and marks of 6 subject from user
+
+import java.util.Scanner;
+import Student.Studentinfo;
+import Student.Studentper;
+
+public class Slip_10 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] marks = new int[6];
+        
+        Studentinfo motej = new Studentinfo(22,"SY");
+        motej.display();
+        System.out.println("enter the marks of 6 subs");
+        for (int i = 0; i <6; i++) {
+            marks[i] = sc.nextInt();
+    }
+        Studentper.Percentage(marks);
+    }
+    
+}
+
+
+ 
+package Student;
+
+public class Studentinfo {
+    int rollno;
+    String std;
+    
+   public Studentinfo(int rollno,String std){
+        this.rollno = rollno;
+        this.std = std;
+    }
+    
+    public void display(){
+        System.out.println("Enter the rollno " + rollno);
+        System.out.println("Enter the standard "+ std);
+    }
+    
+}
+
+
+
+
+package Student;
+
+
+public class Studentper {
+    
+    public static void Percentage(int[] marks) {
+        double totalmarks = 0;
+        for(int i=0;i<marks.length;i++){
+            totalmarks = totalmarks + marks[i];
+        }
+        System.out.println("Total marks is "+totalmarks);
+        double per = totalmarks / marks.length;
+        System.out.println("Percentage is "+per);
+}
+}
+

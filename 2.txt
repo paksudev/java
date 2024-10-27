@@ -1,0 +1,67 @@
+////Define a class CricketPlayer (name,no_of_innings,no_of_times_notout, totatruns, bat_avg).
+////Create an array of n player objects .Calculate the batting average for each player using static
+////method avg(). Define a static sort method which sorts the array on the basis of average. Display
+////the player details in sorted order.
+//
+//
+//import java.util.Arrays;
+//import java.util.Scanner;
+//
+//class Cricketplayer {
+//    String name;
+//    int innings;
+//    int notout;
+//    int totalrun;
+//    double avg;
+//
+//    Cricketplayer(String name, int innings, int notout, int totalrun) {
+//        this.name = name;
+//        this.innings = innings;
+//        this.notout = notout;
+//        this.totalrun = totalrun;
+//        this.avg = 0.0;
+//    }
+//
+//
+//    static void calcavg(Cricketplayer player) {
+//        player.avg = (double) player.totalrun / player.innings;
+//    }
+//
+//    static void sortplayer(Cricketplayer[] players) {
+//        Arrays.sort(players, (p1, p2) -> Double.compare(p2.avg, p1.avg));
+//    }
+//
+//    void display() {
+//        System.out.println("name" + name + "innings" + innings + "notout" + notout + "totalrun" + totalrun+"average"+avg);
+//    }
+//}
+//public class Slip_2 {
+//    public static void main(String[] test) {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Enter how many player you want?");
+//        int n = sc.nextInt();
+//        Cricketplayer[] players = new Cricketplayer[n];
+//        for(int i=0;i<n;i++){
+//            System.out.println("Enter name");
+//            String name = sc.next();
+//            System.out.println("Enter innings");
+//            int innings = sc.nextInt();
+//            System.out.println("Enter notout");
+//            int notout = sc.nextInt();
+//            System.out.println("Enter totalrun");
+//            int totalrun = sc.nextInt();
+//
+//            players[i] = new Cricketplayer(name,innings,notout,totalrun);
+//        }
+//            for(Cricketplayer player : players){
+//                Cricketplayer.calcavg(player);
+//            }
+//
+//            Cricketplayer.sortplayer(players);
+//
+//        System.out.println("Details ");
+//        for(Cricketplayer player : players){
+//            player.display();
+//        }
+//    }
+//}

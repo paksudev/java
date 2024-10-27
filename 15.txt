@@ -1,0 +1,86 @@
+import java.util.*;
+
+//Write a program to define a class Account having members custname, accno. Define default
+// and parameterized constructor. Create a subclass called SavingAccount with member savingbal,
+// minbal. Create a derived class AccountDetail that extends the class SavingAccount with
+// members, depositamt and withdrawalamt. Write a appropriate method to display customer
+// details.
+
+class Account{
+    String cname;
+    int accno;
+    
+    
+    Account(String cname,int accno){
+        this.cname = cname;
+        this.accno = accno;
+    }
+    
+}
+
+class Savingacc extends Account{
+        int savingbal;
+        int minbal;
+
+    public Savingacc(String cname, int accno,int savingbal,int minbal) {
+        super(cname, accno);
+        this.savingbal = savingbal;
+        this.minbal = minbal;
+    }
+    
+    }
+
+class Accdetail extends Savingacc{
+    int depoamt;
+    int witamt;
+
+    public Accdetail(String cname, int accno, int savingbal, int minbal) {
+        super(cname, accno, savingbal, minbal);
+        this.depoamt = depoamt;
+        this.witamt = witamt;
+    }
+
+
+     void display() {
+        System.out.println("Customer Name: " + cname);
+        System.out.println("Account Number: " + accno);
+        System.out.println("Saving Balance: " + savingbal);
+        System.out.println("Minimum Balance: " + minbal);
+        System.out.println("Deposit Amount: " + depoamt);
+        System.out.println("Withdrawal Amount: " + witamt);
+    }
+}
+public class Slip_15 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        String cname;
+        int accno, savingbal,minbal,depoamt,witamt;
+        System.out.println("Enter the account details");
+        int n = sc.nextInt();
+        
+        Accdetail[] dtl = new Accdetail[n];
+        for(int i=0;i<n;i++){
+            
+            System.out.println("Enter the customer name");
+            cname = sc.next();
+            System.out.println("Enter the account number");
+            accno = sc.nextInt();
+            System.out.println("Enter the saving balance");
+            savingbal = sc.nextInt();
+            System.out.println("Enter the minmum balance");
+            minbal = sc.nextInt();
+            System.out.println("Enter the Deposit amount");
+            depoamt = sc.nextInt();
+            System.out.println("Enter the withdraw amount");
+            witamt = sc.nextInt();
+            
+            dtl[i] = new Accdetail(cname, accno,  savingbal,  minbal);
+        }
+        
+        for(Accdetail details :  dtl){
+            details.display();
+        }
+        
+    }
+}

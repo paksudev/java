@@ -1,0 +1,86 @@
+// Create an abstract class “order” having members id, description. Create two subclasses
+// “PurchaseOrder” and “Sales Order” having members customer name and Vendor name
+// respectively. Definemethods accept and display in all cases. Create 3 objects each of Purchase
+// Order and Sales Order and accept and display details.
+
+abstract class Order {
+
+    int id;
+    String desc;
+
+    Order(int id, String desc) {
+        this.id = id;
+        this.desc = desc;
+    }
+    abstract void accept(); 
+        abstract void display(); 
+}
+
+class Purchaseorder extends Order {
+    String cname;
+
+    public Purchaseorder(int id, String desc, String cname) {
+        super(id, desc);
+        this.cname = cname;
+    }
+    
+    public void accept() {
+        System.out.println("Acepting the all details");
+    }
+    
+    public void display(){
+        System.out.println("id is"+id);
+        System.out.println("description is"+desc);
+        System.out.println("cname is"+cname);
+    }
+
+}
+
+
+class Salesorder extends Order {
+    String vname;
+
+    public Salesorder(int id, String desc, String vname) {
+        super(id, desc);
+        this.vname = vname;
+    }
+    
+    public void accept() {
+        System.out.println("Acepting the all details");
+    }
+    
+    public void display(){
+        System.out.println("id is "+id);
+        System.out.println("description is "+desc);
+        System.out.println("vname is "+vname);
+    }
+
+}
+
+public class Slip_6 {
+
+    public static void main(String[] args) {
+        
+        Purchaseorder p1 = new Purchaseorder(1,"laptop","shubhu");
+        Purchaseorder p2 = new Purchaseorder(2,"charger","ram");
+        Purchaseorder p3 = new Purchaseorder(3,"mouse","sham");
+        
+        Salesorder s1 = new Salesorder(1,"Dress","om");
+        Salesorder s2 = new Salesorder(2,"watch","sujal");
+        Salesorder s3 = new Salesorder(3,"shoes","mohit");
+        
+        p1.accept();
+        p1.display();
+        p2.accept();
+        p2.display();
+        p3.accept();
+        p3.display();
+        
+        s1.accept();
+        s1.display();
+        s2.accept();
+        s2.display();
+        s3.accept();
+        s3.display();
+    }
+}
